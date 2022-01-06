@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js"></script>
 </head>
 
 <body>
     <article>
-        <h1><a href="/post">My first post</a></h1>
+        <h1><a href="/post/first-post">My first post</a></h1>
 
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
@@ -24,7 +24,7 @@
         </p>
     </article>
     <article>
-        <h1><a href="/post">My second post</a></h1>
+        <h1><a href="/post/second-post">My second post</a></h1>
 
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
@@ -36,7 +36,7 @@
         </p>
     </article>
     <article>
-        <h1><a href="/post">My third post</a></h1>
+        <h1><a href="/post/third-post">My third post</a></h1>
 
         <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
