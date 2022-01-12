@@ -13,8 +13,10 @@
 <body>
     <?php foreach ($posts as $key => $post) : ?>
     <article>
-        <?= $post ?>
-        <a href="/">Go Back</a>
+        <a href="post/<?= $post->slug ?>">
+            <h1><?= $post->title ?></h1>
+        </a>
+        <?= $post->body ?>
     </article>
     <?php endforeach ?>
 </body>
