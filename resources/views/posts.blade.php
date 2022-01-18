@@ -8,7 +8,7 @@
     @foreach ($posts as $key => $post)
         <article>
             <a href="post/{{ $post->id }}">
-                <h1>{{ $post->title }}</h1>
+                <h1>{!! $post->title !!}</h1>{{-- compiler html --}}
             </a>
             <div>
                 {{ $post->excerpt }}

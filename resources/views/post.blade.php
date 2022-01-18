@@ -9,6 +9,5 @@
         <h1> <?= $post->title ?></h1>
         <?= $post->body ?>
     </article>
-    <br>
     <a href="/">Go Back</a>
 @endsection
