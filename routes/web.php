@@ -9,8 +9,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('post/{post}', function ($id) {
+Route::get('post/{post}', function (Post $post) { //slug is a db column abstrated here used by getRouteKeyName function
     return view('post', [
-        'post' => Post::find($id)
+        'post' => $post
     ]);
 });

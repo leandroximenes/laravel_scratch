@@ -7,7 +7,7 @@
 @section('content')
     @foreach ($posts as $key => $post)
         <article>
-            <a href="post/{{ $post->id }}">
+            <a href="post/{{ $post->slug }}">
                 <h1>{!! $post->title !!}</h1>{{-- compiler html --}}
             </a>
             <div>
