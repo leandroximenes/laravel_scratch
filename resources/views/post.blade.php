@@ -7,6 +7,7 @@
 @section('content')
     <article>
         <h1> {!! $post->title !!}</h1>
+        <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a>
         {!! $post->body !!}
 
     </article>
