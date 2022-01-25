@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    {{ $post->title }}
+    {{ strip_tags($post->title) }}
 @endsection
 
 @section('content')
