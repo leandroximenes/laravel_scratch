@@ -7,7 +7,7 @@ use App\Models\Category;
 Route::get('/', function () {
     return view('posts', [
         // 'posts' => Post::all() //Make 4 queries 47ms
-        'posts' => Post::with('category')->get() //Make 2 queries 25ms
+        'posts' => Post::with('user', 'category')->get() //Make 2 queries 25ms
 
         // use clockwork to show
     ]);
