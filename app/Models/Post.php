@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\User;
 
-class Post extends Model
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
+
+class Post extends Model implements AuditableContract
 {
     use HasFactory;
+
+    use Auditable;
 
     protected $with = ['category', 'author'];
 
