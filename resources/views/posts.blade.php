@@ -11,7 +11,10 @@
                 <h1>{!! $post->title !!}</h1>{{-- compiler html --}}
             </a>
             <p>
-                Category: <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+                Author: <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
+            </p>
+            <p>
+                Category: <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
             </p>
             <div>
                 Excerpt: {{ $post->excerpt }}

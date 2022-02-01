@@ -19,15 +19,15 @@ class Post extends Model
         return 'slug';
     }
 
-    public function category()
+    public function category() //Automatically refresh category_id
     {
         # hasOne, hasMany, belongsTo, BelognsToMany
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author() //user_id
     {
         # hasOne, hasMany, belongsTo, BelognsToMany
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
