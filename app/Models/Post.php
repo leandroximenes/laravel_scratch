@@ -11,6 +11,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = ['category', 'author'];
+
     /**
      * Specify the coluns will be use as parameter in route 
      */

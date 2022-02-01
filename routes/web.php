@@ -8,7 +8,9 @@ use App\Models\User;
 Route::get('/', function () {
     return view('posts', [
         // 'posts' => Post::all() //Make 4 queries 47ms
-        'posts' => Post::with('author', 'category')->get() //Make 2 queries 25ms
+        // 'posts' => Post::with('author', 'category')->get() //Make 2 queries 25ms
+
+        'posts' => Post::latest()->get() //Make 2 queries 25ms
         /* --- use clockwork to show --- */
 
     ]);
@@ -22,12 +24,12 @@ Route::get('post/{post}', function (Post $post) { //slug is a db column abstrate
 
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('posts', [
-        'posts' => $category->posts->load(['category', 'author'])
+        'posts' => $category->posts
     ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('posts', [
-        'posts' => $author->posts->load(['category', 'author'])
+        'posts' => $author->posts
     ]);
 });
