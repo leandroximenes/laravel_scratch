@@ -1,24 +1,18 @@
-@extends('layout')
-
-@section('title')
-    Posts
-@endsection
-
-@section('content')
+<x-layout>
     @foreach ($posts as $key => $post)
         <article>
-            <a href="/post/{{ $post->slug }}">
-                <h1>{!! $post->title !!}</h1>{{-- compiler html --}}
-            </a>
+            <h1>
+                <a href="/post/<?= $post->slug ?>">
+                    <?= $post->title ?>
+                </a>
+            </h1>
             <p>
-                Author: <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
-            </p>
-            <p>
-                Category: <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+                By <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a> in
+                <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
             </p>
             <div>
-                Excerpt: {{ $post->excerpt }}
+                <?= $post->excerpt ?>
             </div>
         </article>
     @endforeach
-@endsection
+</x-layout>

@@ -4,32 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;
-use App\Models\User;
 
 class Post extends Model
 {
     use HasFactory;
 
+    /*
+    - with this, don't need put this: 
+        Post::latest('publish_at')->with('category', 'author')->get() or
+        $author->posts->load(['category', 'author'])
+       anymore. 
+    - And the oposite is:
+        Post::latest('publish_at')->without('category', 'author')->get()
+    */
     protected $with = ['category', 'author'];
 
-    /**
-     * Specify the coluns will be use as parameter in route 
-     */
+
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
-    public function category() //Automatically refresh category_id
+    public function category() // Laravel assume foreing key is category_id
     {
-        # hasOne, hasMany, belongsTo, BelognsToMany
         return $this->belongsTo(Category::class);
     }
 
-    public function author() //user_id
+    public function author() // Change default user to author
     {
-        # hasOne, hasMany, belongsTo, BelognsToMany
         return $this->belongsTo(User::class, 'user_id');
     }
 }

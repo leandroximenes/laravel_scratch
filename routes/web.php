@@ -6,17 +6,23 @@ use App\Models\Category;
 use App\Models\User;
 
 Route::get('/', function () {
-    return view('posts', [
-        // 'posts' => Post::all() //Make 4 queries 47ms
-        // 'posts' => Post::with('author', 'category')->get() //Make 2 queries 25ms
+    /**
+     * Listen db and put in logger
+     * */
+    // Illuminate\Support\Facades\DB::listen(function ($query) {
+    //     logger($query->sql);
+    // });
 
-        'posts' => Post::latest()->get() //Make 2 queries 25ms
-        /* --- use clockwork to show --- */
+    return view('posts', [
+        // Old way
+        //'posts' => Post::all()
+        // best way
+        'posts' => Post::latest('publish_at')->get()
 
     ]);
 });
 
-Route::get('post/{post}', function (Post $post) { //slug is a db column abstrated here used by getRouteKeyName function
+Route::get('post/{post}', function (Post $post) { // The same as post:{post:slug} because add getRouteKeyName() in Post Model
     return view('post', [
         'post' => $post
     ]);

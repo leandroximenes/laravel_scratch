@@ -37,7 +37,7 @@ class Post
 
         return collect($files)->map(function ($file) {
             $document = YamlFrontMatter::parse($file->getContents());
-            return new Post($document->title, $document->excerpt, $document->data, $document->body(), $document->slug);
+            return new Post($document->title, $document->exerpt, $document->data, $document->body(), $document->slug);
         })->sortByDesc('date');
     }
 }

@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function posts()
     {
-        # hasOne, hasMany, belongsTo, BelognsToMany
+        // hasOne, hasMany, belongsTo, belongsToMany
         return $this->hasMany(Post::class);
     }
 }
