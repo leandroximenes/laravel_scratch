@@ -18,7 +18,7 @@ Route::get('/', function () {
         // Old way
         //'posts' => Post::all()
         // best way
-        'posts' => Post::latest('publish_at')->with('category', 'author')->get()
+        'posts' => Post::latest('publish_at')->get()
 
     ]);
 });

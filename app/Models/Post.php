@@ -9,6 +9,14 @@ class Post extends Model
 {
     use HasFactory;
 
+    //with this, don't need put this: 
+    //  Post::latest('publish_at')->with('category', 'author')->get() or
+    //  $author->posts->load(['category', 'author'])
+    // anymore. And the oposite is:
+    //  Post::latest('publish_at')->without('category', 'author')->get()
+    protected $with = ['category', 'author'];
+
+
     public function getRouteKeyName()
     {
         return 'slug';
