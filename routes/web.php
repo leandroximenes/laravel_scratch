@@ -9,8 +9,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('post/{post}', function ($slug) {
+Route::get('post/{post:slug}', function (Post $post) { // The same as Post::where('slug', $post)->fistOrFail(), because Model changed
     return view('post', [
-        'post' => Post::find($slug)
+        'post' => $post
     ]);
-})->where('post', '[A-z_\-]+');
+});
