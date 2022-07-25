@@ -1021,7 +1021,11 @@
             ],
             "support": {
                 "issues": "https://github.com/itsgoingd/clockwork/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/itsgoingd/clockwork/tree/v5.1.6"
+=======
+                "source": "https://github.com/itsgoingd/clockwork/tree/v5.1.3"
+>>>>>>> a6ad39b6cc99053199d4e9921ffa274f8ba44d65
             },
             "funding": [
                 {
@@ -1029,7 +1033,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-04-12T21:35:47+00:00"
+=======
+            "time": "2021-12-24T12:24:20+00:00"
+>>>>>>> a6ad39b6cc99053199d4e9921ffa274f8ba44d65
         },
         {
             "name": "laravel/framework",

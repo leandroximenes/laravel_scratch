@@ -4,13 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     /**
      * Listen db and put in logger
      * */
-    // DB::listen(function ($query) {
+    // Illuminate\Support\Facades\DB::listen(function ($query) {
     //     logger($query->sql);
     // });
 

@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        # CLEAN ALL TABLES
         User::truncate();
         Post::truncate();
         Category::truncate();
