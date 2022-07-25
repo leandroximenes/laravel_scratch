@@ -14,13 +14,13 @@ class Post extends Model
         return 'slug';
     }
 
-    public function category()
+    public function category() // Laravel assume foreing key is category_id
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author() // Change default user to author
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

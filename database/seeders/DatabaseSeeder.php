@@ -21,14 +21,15 @@ class DatabaseSeeder extends Seeder
         Category::truncate();
         $user = User::factory()->create();
         $user2 = User::factory()->create([
-            'name' => "John Doe"
+            'name' => "John Doe",
+            'username' => "picaDasGalaxias"
         ]);
 
         $personal = Category::create([
             "name" => "Personal",
             "slug" => "personal"
         ]);
-        
+
         $family = Category::create([
             "name" => "Family",
             "slug" => "family"

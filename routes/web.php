@@ -18,7 +18,7 @@ Route::get('/', function () {
         // Old way
         //'posts' => Post::all()
         // best way
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest('publish_at')->with('category', 'author')->get()
 
     ]);
 });
@@ -35,8 +35,8 @@ Route::get('categories/{category:slug}', function (Category $category) {
     ]);
 });
 
-Route::get('users/{user:id}', function (User $user) {
+Route::get('authors/{author:username}', function (User $author) {
     return view('posts', [
-        'posts' => $user->posts
+        'posts' => $author->posts
     ]);
 });
