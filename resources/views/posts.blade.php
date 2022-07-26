@@ -1,18 +1,14 @@
 <x-layout>
 
     @include('_posts-header')
-    
+
     <main class="container mx-auto max-w-screen-xl">
-        <x-post-card-featured />
-        <div class="grid lg:grid-cols-2 gap md:grid-cols-1 ">
-            <x-post-card />
-            <x-post-card />
-        </div>
-        <div class="grid lg:grid-cols-3 gap md:grid-cols-1 ">
-            <x-post-card />
-            <x-post-card />
-            <x-post-card />
-        </div>
+        @if ($posts->count())
+            <x-post-grid :posts="$posts" />
+        @else
+            <p class="text-center">No posts yet. Please check back later</p>
+        @endif
+
     </main>
 
     {{-- @foreach ($posts as $key => $post)
@@ -27,15 +23,8 @@
                 <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
             </p>
             <div>
-<<<<<<< HEAD
                 {!! $post->excerpt !!}
             </div>
         </article>
     @endforeach --}}
-=======
-                <?= $post->excerpt ?>
-            </div>
-        </article>
-    @endforeach
->>>>>>> master
 </x-layout>
