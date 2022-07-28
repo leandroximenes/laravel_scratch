@@ -13,13 +13,13 @@
     <section class="px-6 py-8">
         <nav class="grid-cols-1 grid justify-center justify-items-center lg:flex lg:justify-between">
             <div class="mb-10">
-                <a href="post.html">
-                    <img src="images/logo.svg" alt="laracast logo" width="165" height="16">
+                <a href="/">
+                    <img src="/images/logo.svg" alt="laracast logo" width="165" height="16">
                 </a>
             </div>
             <div>
                 <a href="/" class="text-xs text-black uppercase font-bold">Home Page</a>
-                <a href="post.html"
+                <a href="/"
                     class="text-xs text-white uppercase 
                 font-semibold bg-blue-500 py-4 px-6 mx-2 rounded-full">
                     Subscribe for Updates
