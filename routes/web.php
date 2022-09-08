@@ -17,8 +17,8 @@ Route::get('/', function () {
         // Old way
         //'posts' => Post::all()
         // best way
-        'posts' => Post::latest('publish_at')->get()
-
+        'posts' => Post::latest('publish_at')->get(),
+        'categories' => Category::orderBy('name', 'asc')->get(),
     ]);
 });
 
@@ -30,12 +30,16 @@ Route::get('post/{post}', function (Post $post) { // The same as post:{post:slug
 
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('pages/posts', [
-        'posts' => $category->posts
+        'posts' => $category->posts,
+        'currentCategory' => $category,
+        'categories' => Category::orderBy('name', 'asc')->get(),
     ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('pages/posts', [
-        'posts' => $author->posts
+        'posts' => $author->posts,
+        'currentCategory' => $author->posts->categories,
+        'categories' => Category::orderBy('name', 'asc')->get(),
     ]);
 });
