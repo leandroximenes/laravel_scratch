@@ -3,12 +3,8 @@
     <div class="flex-1 flex flex-col justify-between gap-5">
         <main>
             <!-- TODO: Image -->
-            <img class="rounded-xl mb-5" src="images/illustration-1.png">
-            <div>
-                <a href="{{ $post->category->slug }}"
-                    class="px-3 py-1 mr-2 border border-red-300 rounded-full uppercase text-xs text-red-300">
-                    {{ $post->category->name }}</a>
-            </div>
+            <img class="rounded-xl mb-5" src="/images/illustration-1.png">
+            <x-post.category-button :category="$post->category" />
             <h1 class="text-3xl tracking-wide mt-5 mb-1 font-light"><a href="/post/{{ $post->slug }}">
                     {{ $post['title'] }}
                 </a></h1>
@@ -23,7 +19,7 @@
         <footer>
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <img src="images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
                     <div class="ml-2">
                         <b>{{ $post->author->name }}</b>
                     </div>
