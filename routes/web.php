@@ -13,7 +13,7 @@ Route::get('/', function () {
     //     logger($query->sql);
     // });
 
-    return view('posts', [
+    return view('pages/posts', [
         // Old way
         //'posts' => Post::all()
         // best way
@@ -23,19 +23,19 @@ Route::get('/', function () {
 });
 
 Route::get('post/{post}', function (Post $post) { // The same as post:{post:slug} because add getRouteKeyName() in Post Model
-    return view('post', [
+    return view('pages/post', [
         'post' => $post
     ]);
 });
 
 Route::get('categories/{category:slug}', function (Category $category) {
-    return view('posts', [
+    return view('pages/posts', [
         'posts' => $category->posts
     ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
-    return view('posts', [
+    return view('pages/posts', [
         'posts' => $author->posts
     ]);
 });
