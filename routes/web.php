@@ -14,13 +14,10 @@ Route::get('/', function () {
     // });
 
     return view('pages/posts', [
-        // Old way
-        //'posts' => Post::all()
-        // best way
         'posts' => Post::latest('publish_at')->get(),
         'categories' => Category::orderBy('name', 'asc')->get(),
     ]);
-});
+})->name('home');
 
 Route::get('post/{post}', function (Post $post) { // The same as post:{post:slug} because add getRouteKeyName() in Post Model
     return view('pages/post', [
@@ -34,12 +31,11 @@ Route::get('categories/{category:slug}', function (Category $category) {
         'currentCategory' => $category,
         'categories' => Category::orderBy('name', 'asc')->get(),
     ]);
-});
+})->name('category');
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('pages/posts', [
         'posts' => $author->posts,
-        'currentCategory' => $author->posts->categories,
         'categories' => Category::orderBy('name', 'asc')->get(),
     ]);
 });

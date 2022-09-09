@@ -6,30 +6,7 @@
             with new content. I'm going to keep you guys up to speed wieth what's going on!</p>
     </div>
     <div class="mt-10 grid-cols-1 gap-5 grid lg:flex text-sm">
-        <div class="px-4 py-3 my-auto bg-gray-200 mx-2 rounded-xl font-semibold">
-            <div x-data="{show: false}" @click.away="show = false">
-                <button class="bg-gray-200 font-bold rounded inline-flex items-center" @click="show = !show">
-                    <span>
-                        {{ $currentCategory->name ? ucfirst(trans($currentCategory->name)) : 'Category' }}
-                    </span>
-                    <svg class="w-4 h-4 pt-1 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </button>
-                <div x-show="show" class="px-2 py-3 -mx-4 mt-4 absolute bg-gray-200 rounded-xl w-32"
-                    style="display: none">
-                    <a href="/" class="block text-left px-4 py-1 font-normal leading-6 hover:bg-gray-300 hover:px-8">
-                        All
-                    </a>
-                    @foreach($categories as $category)
-                    <a href="/categories/{{ $category->slug }}" class="block text-left px-4 py-1 font-normal leading-6 hover:bg-gray-300 hover:px-8
-                        {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-gray-300' : '' }}">
-                        {{ ucfirst(trans($category->name)) }}</a>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        <x-post.category-dropdown :categories="$categories" />
         <select class="px-4 py-3 my-auto bg-gray-200 mx-2 rounded-xl font-semibold ">
             <option value="1">Other Filters</option>
         </select>
