@@ -10,10 +10,8 @@
                 </a></h1>
             <h5 class="text-gray-400 text-xs">Published <time>{{ $post->created_at->diffForHumans() }}</time></h5>
 
-            <div class="text-justify text-md font-light mt-5">
-                <p>
-                    {{ $post->excerpt }}
-                </p>
+            <div class="text-justify text-md font-light mt-5 space-y-4">
+                {!! $post->excerpt !!}
             </div>
         </main>
         <footer>

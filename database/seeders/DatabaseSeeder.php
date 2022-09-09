@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             "slug" => "work"
         ]);
 
-        Post::factory(5)->create([
+        Post::factory(10)->create([
             "user_id" => $user2->id
         ]);
 
@@ -49,7 +49,8 @@ class DatabaseSeeder extends Seeder
             "category_id" => $personal->id,
             "title" => "My first Post",
             "slug" => "my_first_post",
-            "excerpt" => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>",
+            "excerpt" => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry<p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry<p>",
             "body" => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                         Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
                         when an unknown printer took a galley of type and scrambled it to make a type 
@@ -65,7 +66,8 @@ class DatabaseSeeder extends Seeder
             "category_id" => $personal->id,
             "title" => "My second Post",
             "slug" => "my_second_post",
-            "excerpt" => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>",
+            "excerpt" => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry<p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry<p>",
             "body" => "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                         Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
                         when an unknown printer took a galley of type and scrambled it to make a type 

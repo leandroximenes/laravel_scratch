@@ -3,9 +3,9 @@
 $itemClass = 'block text-left px-4 py-1 font-normal leading-6 hover:bg-gray-300 hover:px-8';
 function active($category){
     if($category)
-        return request()->is("categories/{$category->slug}") ? 'bg-gray-300' : '';
+        return request()->is("categories/{$category->slug}") ? 'bg-gray-400' : '';
     else
-        return request()->routeIs("home") ? 'bg-gray-300' : '';
+        return request()->routeIs("home") ? 'bg-gray-400' : '';
 }
 @endphp
 <div class="px-4 py-3 my-auto bg-gray-200 mx-2 rounded-xl font-semibold">
@@ -19,7 +19,8 @@ function active($category){
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
         </button>
-        <div x-show="show" class="px-2 py-3 -mx-4 mt-4 absolute bg-gray-200 rounded-xl w-32" style="display: none">
+        <div x-show="show" class="px-2 py-3 -mx-4 mt-4 absolute bg-gray-200 rounded-xl w-32 max-h-40 overflow-auto"
+            style="display: none">
             <a href="/" class="{{ $itemClass }} {{ active(null) }}">All</a>
             @foreach($categories as $category)
             <a href="/categories/{{ $category->slug }}" class="{{ $itemClass }} {{ active($category) }}">
