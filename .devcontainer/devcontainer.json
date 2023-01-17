@@ -1,0 +1,26 @@
+// https://aka.ms/devcontainer.json
+{
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "laravel.test",
+	"workspaceFolder": "/var/www/html",
+	"settings": {},
+	"containerEnv": {
+        "HTTP_PROXY": "${HTTP_PROXY}",
+        "HTTPS_PROXY": "${HTTP_PROXY}",
+        "http_proxy": "${HTTP_PROXY}",
+        "https_proxy": "${HTTP_PROXY}"
+    },	"extensions": [
+		"GitHub.vscode-pull-request-github",
+		"GitHub.copilot",
+		"bmewburn.vscode-intelephense-client",
+		"xdebug.php-debug"
+	],
+	"remoteUser": "sail",
+	"postCreateCommand": "chown -R 1000:1000 /var/www/html"
+	// "forwardPorts": [],
+	// "runServices": [],
+	// "shutdownAction": "none",
+}
