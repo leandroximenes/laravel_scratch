@@ -14,8 +14,10 @@
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
-            <input type="text" class="bg-gray-200 placeholder-gray-500 font-semibold focus:outline-none"
-                placeholder="Find something?">
+            <form action="/" method="get">
+                <input type="text" class="bg-gray-200 placeholder-gray-500 font-semibold focus:outline-none"
+                placeholder="Find something?" name="search" value="{{ request('search') }}">
+            </form>
         </label>
     </div>
 </header>
