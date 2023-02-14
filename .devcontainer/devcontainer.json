@@ -15,7 +15,6 @@
     // },	
 	"extensions": [
 		"GitHub.vscode-pull-request-github",
-		"GitHub.copilot",
 		"bmewburn.vscode-intelephense-client",
 		"xdebug.php-debug"
 	],

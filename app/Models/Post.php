@@ -34,4 +34,19 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    /**
+     * Scopes should always return the same query builder instance or void: 
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeMyFilter($query)
+    {
+        if (request('search'))
+            $query
+                ->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('body', 'like', '%' . request('search') . '%');
+
+        return $query;
+    }
 }

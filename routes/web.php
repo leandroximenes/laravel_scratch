@@ -4,32 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
+use App\Http\Controllers\PostController;
 
-Route::get('/', function () {
-    /**
-     * Listen db and put in logger
-     * */
-    // Illuminate\Support\Facades\DB::listen(function ($query) {
-    //     logger($query->sql);
-    // });
-    $posts = Post::latest('publish_at');
-    
-    if(request('search'))
-        $posts
-            ->where('title', 'like', '%' . request('search') . '%')
-            ->orWhere('body', 'like', '%' . request('search') . '%');
+Route::get('/', [PostController::class, 'index'])->name('home');
 
-    return view('pages/posts', [
-        'posts' => $posts->get(),
-        'categories' => Category::orderBy('name', 'asc')->get(),
-    ]);
-})->name('home');
-
-Route::get('post/{post}', function (Post $post) { // The same as post:{post:slug} because add getRouteKeyName() in Post Model
-    return view('pages/post', [
-        'post' => $post
-    ]);
-});
+Route::get('post/{post}', [PostController::class, 'show']);
 
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('pages/posts', [
