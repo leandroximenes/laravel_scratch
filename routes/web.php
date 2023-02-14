@@ -12,9 +12,15 @@ Route::get('/', function () {
     // Illuminate\Support\Facades\DB::listen(function ($query) {
     //     logger($query->sql);
     // });
+    $posts = Post::latest('publish_at');
+    
+    if(request('search'))
+        $posts
+            ->where('title', 'like', '%' . request('search') . '%')
+            ->orWhere('body', 'like', '%' . request('search') . '%');
 
     return view('pages/posts', [
-        'posts' => Post::latest('publish_at')->get(),
+        'posts' => $posts->get(),
         'categories' => Category::orderBy('name', 'asc')->get(),
     ]);
 })->name('home');
